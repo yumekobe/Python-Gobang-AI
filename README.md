@@ -1,7 +1,10 @@
 # Python-Gobang-AI
 This is a project for my university course.
+
 The goal of the project is to creat an AI gamer to play gobang with human.
-The process will be updated by the time
+
+The process will be updated by the time.
+
 Using Pygame
 
 ## Control
