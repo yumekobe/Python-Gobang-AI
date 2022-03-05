@@ -10,5 +10,9 @@ Mouse and keyboard
 ## Technology
 Python 3.9 and Pygame 2.1.2
 
+## Pygame
+https://www.pygame.org
+
+## Updates
 March 5th, 2022:
 The main part of the Gobang game without AI is compeleted
