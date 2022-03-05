@@ -72,6 +72,15 @@ class Gameplay:
                                 break
                         if count == 5:
                             return True
+                    count = 0
+                    if  j < 12 and i > 4:
+                        for k in range(5):
+                            if board.data[i][j] == board.data[i-k][j+k]:
+                                count += 1
+                            else:
+                                break
+                        if count == 5:
+                            return True
         return False
         
     def Start(self,screen):
