@@ -8,10 +8,11 @@ Using Pygame
 Mouse and keyboard
 
 ## Technology
-Python 3.9 and Pygame 2.1.2
+**Python 3.9** and **Pygame 2.1.2**
 
 ## Pygame
-Website: https://www.pygame.org '\n'
+Website: http://www.pygame.org 
+
 Github: https://github.com/pygame/pygame
 
 ## Updates
