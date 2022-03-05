@@ -11,7 +11,7 @@ Mouse and keyboard
 Python 3.9 and Pygame 2.1.2
 
 ## Pygame
-Website: https://www.pygame.org \n
+Website: https://www.pygame.org ##
 Github: https://github.com/pygame/pygame
 
 ## Updates
