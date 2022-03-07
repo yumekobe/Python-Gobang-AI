@@ -26,14 +26,14 @@ class Gameplay:
                         x, y = pygame.mouse.get_pos()
                         pos_j = x // BLOCK_WIDTH
                         pos_i = y // BLOCK_WIDTH
-                        if pos_i > 0 and pos_j > 0 and pos_i < 16 and pos_j < 16:
+                        if pos_i > 0 and pos_j > 0 and pos_i < BLOCKS and pos_j < BLOCKS:
                             if board.data[pos_i][pos_j] == 0:
                                 break
                             else:
                                 continue
                         else:
                             continue
-            if pos_i > 0 and pos_j > 0 and pos_i < 16 and pos_j < 16:
+            if pos_i > 0 and pos_j > 0 and pos_i < BLOCKS and pos_j < BLOCKS:
                 if board.data[pos_i][pos_j] == 0:
                     break
         board.place_piece(game_turn[0] + 1,pos_i,pos_j)
@@ -41,12 +41,12 @@ class Gameplay:
         game_turn[0] = game_turn[0] % 2
 
     def judge(self,board:Board)->bool:
-        for i in range(1,16):
-            for j in range(1,16):
+        for i in range(1,BLOCKS):
+            for j in range(1,BLOCKS):
                 if board.data[i][j] != 0:
                     count = 0
                     #判断列是否满足
-                    if i < 12:
+                    if i < BLOCKS - 4:
                         for k in range(5):
                             if board.data[i][j] == board.data[i+k][j]:
                                 count += 1
@@ -55,7 +55,7 @@ class Gameplay:
                         if count == 5:
                             return True
                     count = 0
-                    if j < 12:
+                    if j < BLOCKS - 4:
                         for k in range(5):
                             if board.data[i][j] == board.data[i][j+k]:
                                 count += 1
@@ -64,7 +64,7 @@ class Gameplay:
                         if count == 5:
                             return True
                     count = 0
-                    if i < 12 and j < 12:
+                    if i < BLOCKS - 4 and j < BLOCKS - 4:
                         for k in range(5):
                             if board.data[i][j] == board.data[i+k][j+k]:
                                 count += 1
@@ -73,7 +73,7 @@ class Gameplay:
                         if count == 5:
                             return True
                     count = 0
-                    if  j < 12 and i > 4:
+                    if  j < BLOCKS - 4 and i > 4:
                         for k in range(5):
                             if board.data[i][j] == board.data[i-k][j+k]:
                                 count += 1
@@ -102,6 +102,10 @@ class Gameplay:
                         terminate()
                     else:
                         return
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    if pygame.mouse.get_pressed()[0]:
+                        return
+
     def Run(self,screen):
         is_running = True
         draw_board(screen)

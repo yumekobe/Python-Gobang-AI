@@ -5,10 +5,10 @@ circle_radius = 12
 def draw_board(scr):
     
     scr.fill(BOARD_COLOUR)
-    for i in range(1,BLOCKS+1):
-        pygame.draw.line(scr, BLACK, [BLOCK_WIDTH, i * BLOCK_WIDTH], [BLOCKS * BLOCK_WIDTH, i * BLOCK_WIDTH], 2)
-    for j in range(1,BLOCKS+1):
-        pygame.draw.line(scr, BLACK, [j * BLOCK_WIDTH, BLOCK_WIDTH], [j * BLOCK_WIDTH, BLOCKS * BLOCK_WIDTH], 2)
+    for i in range(1,BLOCKS):
+        pygame.draw.line(scr, BLACK, [BLOCK_WIDTH + BLOCK_WIDTH/2, i * BLOCK_WIDTH + BLOCK_WIDTH/2], [BLOCKS * BLOCK_WIDTH - BLOCK_WIDTH/2, i * BLOCK_WIDTH + BLOCK_WIDTH/2], 2)
+    for j in range(1,BLOCKS):
+        pygame.draw.line(scr, BLACK, [j * BLOCK_WIDTH + BLOCK_WIDTH/2, BLOCK_WIDTH + BLOCK_WIDTH/2], [j * BLOCK_WIDTH + BLOCK_WIDTH/2, BLOCKS * BLOCK_WIDTH - BLOCK_WIDTH/2], 2)
     
     font = pygame.font.SysFont("Consolas", 17)
     for i in range(1,BLOCKS):
@@ -17,6 +17,7 @@ def draw_board(scr):
         scr.blit(text,(BLOCK_WIDTH/5, BLOCK_WIDTH/3 + i * BLOCK_WIDTH))
         scr.blit(text,(BLOCK_WIDTH/3 + i * BLOCK_WIDTH, BLOCK_WIDTH/5))
     draw_current_piece(scr,0)
+    pygame.draw.circle(scr, BLACK, (BLOCK_WIDTH * BLOCKS/2 + BLOCK_WIDTH/2 + 1, BLOCK_WIDTH* BLOCKS/2 + BLOCK_WIDTH/2 + 1),4,0)
     pygame.display.update()
 
 def draw_pieces(scr,board:Board):
