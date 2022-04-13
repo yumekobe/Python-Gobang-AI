@@ -8,6 +8,8 @@ def terminate():
     pygame.quit()
     exit()
 class Gameplay:
+    def __init__(self):
+        self.is_restart =False
     def player_turn(self,board:Board,is_running:bool):
         x = 0
         y = 0
@@ -22,6 +24,10 @@ class Gameplay:
                     if event.key == pygame.K_ESCAPE:
                         is_running = False
                         terminate()
+                    if event.key == pygame.K_r:
+                        
+                        self.is_restart = True
+                        return
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     if pygame.mouse.get_pressed()[0]:
                         x, y = pygame.mouse.get_pos()
@@ -169,6 +175,10 @@ class Gameplay:
                 self.player_turn(board,is_running)
             else:
                 self.computer_turn(board,is_running)
+            if self.is_restart:
+                screen.fill(BOARD_COLOUR)
+                pygame.display.update()
+                return
             draw_pieces(screen,board)
             
             draw_currencyrent_piece(screen,self.game_turn)
