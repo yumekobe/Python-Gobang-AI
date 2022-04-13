@@ -21,3 +21,7 @@ Github: https://github.com/pygame/pygame
 ## Updates
 March 5th, 2022:
 The main part of the Gobang game without AI is compeleted
+
+
+April 13th, 2022:
+Added computer player as opponent using min-max algorithm, added restart feature.
