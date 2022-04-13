@@ -10,9 +10,10 @@ def main():
     screen = pygame.display.set_mode([SCREEN_WIDTH,SCREEN_HEIGHT])
     pygame.display.set_caption("Gobang")
     screen.fill(BOARD_COLOUR)
-    game = Gameplay()
     while True:
+        game = Gameplay()
         game.Start(screen)
+        game.choose_p(screen)
         game.Run(screen)
         time.sleep(2)
 

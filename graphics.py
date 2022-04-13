@@ -12,11 +12,11 @@ def draw_board(scr):
     
     font = pygame.font.SysFont("Consolas", 17)
     for i in range(1,BLOCKS):
-        te = str(i-1)
+        te = str(i)
         text = font.render(te, True, BLACK)
         scr.blit(text,(BLOCK_WIDTH/5, BLOCK_WIDTH/3 + i * BLOCK_WIDTH))
         scr.blit(text,(BLOCK_WIDTH/3 + i * BLOCK_WIDTH, BLOCK_WIDTH/5))
-    draw_current_piece(scr,0)
+    draw_currencyrent_piece(scr,0)
     pygame.draw.circle(scr, BLACK, (BLOCK_WIDTH * BLOCKS/2 + BLOCK_WIDTH/2 + 1, BLOCK_WIDTH* BLOCKS/2 + BLOCK_WIDTH/2 + 1),4,0)
     pygame.display.update()
 
@@ -30,7 +30,7 @@ def draw_pieces(scr,board:Board):
                 pygame.draw.circle(scr, WHITE, (BLOCK_WIDTH/2 + BLOCK_WIDTH*j + 1, BLOCK_WIDTH/2 + BLOCK_WIDTH*i + 1),circle_radius,0)
     pygame.display.update()
 
-def draw_current_piece(scr,game_turn:int):
+def draw_currencyrent_piece(scr,game_turn:int):
     if game_turn == 0:
         colourh = BLACK
     else:
